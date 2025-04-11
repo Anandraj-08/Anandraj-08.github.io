@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+  Updates for JPN Fall 2024
+  FALL2024ID4867
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  
+  
+  
+
+  
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Building Inventory Visualizations">
+  <meta property="og:description" content="I am definitely not a corgi!">
+  <meta property="og:image" content="https://media.tenor.com/8RcIoWTKYR4AAAAe/scuze-corgi.png">
+
+  <title>Building Inventory Visualizations</title>
+  <meta name="description" content="I am definitely not a corgi!">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Theme style -->
+  <script src="/assets/js/theme.js"></script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+</head>
+
+<body class="h-100 d-flex flex-column">
+
+  <main class="flex-shrink-0 container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-themed">
+
+  <a class="navbar-brand" href="/"><h5><b>IS445 Jekyll Template</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-1x fa-bars text-themed"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link " href="/blog/">Blog</a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      
+
+      <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+    </div>
+  </div>
+
+</nav>
+    <div class="col-lg-10 mx-auto mt-5 markdown-body">
+  <h2 id="the-data">The Data</h2>
+<p><a href="https://raw.githubusercontent.com/UIUC-iSchool-DataViz/is445_data/main/building_inventory.csv">Dataset</a></p>
+
+<h2 id="the-analysis">The Analysis</h2>
+<p><a href="https://github.com/Anandraj-08/is445-building-viz/blob/main/building_visualizations.ipynb">Notebook</a></p>
+
+<h2 id="visualization-1-building-age-vs-size-distribution-scatter-plot">Visualization 1: Building Age vs. Size Distribution (Scatter Plot)</h2>
+
+<p><strong>What is being visualized:</strong><br />
+This interactive scatter plot shows the relationship between when a building was constructed and its total square footage. Each point represents a building in the dataset. This allows us to analyze whether newer buildings tend to be larger, and how different agencies compare in terms of building size and construction periods.</p>
+
+<p><strong>Design choices – encodings:</strong></p>
+<ul>
+  <li>The <strong>x-axis</strong> encodes the <code class="language-plaintext highlighter-rouge">Year Constructed</code> (quantitative), and the <strong>y-axis</strong> encodes <code class="language-plaintext highlighter-rouge">Square Footage</code> (quantitative).</li>
+  <li>The <strong>color</strong> is mapped to <code class="language-plaintext highlighter-rouge">Agency Name</code> using the <code class="language-plaintext highlighter-rouge">category20</code> scheme, which helps differentiate agencies and spot clustering.</li>
+  <li>The points have a semi-transparent fill with a <strong>white border</strong> to ensure good visibility even when data points overlap.</li>
+  <li>The plot includes <strong>tooltips</strong> for <code class="language-plaintext highlighter-rouge">Building Name</code>, <code class="language-plaintext highlighter-rouge">Year</code>, <code class="language-plaintext highlighter-rouge">Square Footage</code>, <code class="language-plaintext highlighter-rouge">Agency</code>, and <code class="language-plaintext highlighter-rouge">Decade Built</code> on hover.</li>
+</ul>
+
+<p><strong>Design choices – colormaps:</strong><br />
+The <code class="language-plaintext highlighter-rouge">category20</code> color scheme was selected to clearly distinguish between up to 20 agencies. categorical palette makes it easy to scan the visualization.</p>
+
+<p><strong>Data transformations:</strong></p>
+<ul>
+  <li>The Non-numeric entries in <code class="language-plaintext highlighter-rouge">Year Constructed</code> and <code class="language-plaintext highlighter-rouge">Square Footage</code> were coerced</li>
+  <li>The outliers were removed for both <code class="language-plaintext highlighter-rouge">Square Footage</code> and <code class="language-plaintext highlighter-rouge">Year Constructed</code>.</li>
+  <li>Missing values were dropped, and a new column <code class="language-plaintext highlighter-rouge">Decade Built</code> was added by flooring the year to the nearest decade.</li>
+</ul>
+
+<p><strong>Overlap with Homework #5:</strong><br />
+This plot is inspired by the original scatter plot from Homework #5 but has been <strong>rebuilt using Altair</strong>, Intially it was in streamlit Compared to HW5, this version adds interactive tooltips, color encodings, axis formatting, and outlier filtering to improve clarity and usability.</p>
+
+<hr />
+
+<h2 id="visualization-2-building-construction-by-decade-area-chart">Visualization 2: Building Construction by Decade (Area Chart)</h2>
+
+<p><strong>What is being visualized:</strong><br />
+This area chart shows how many buildings were constructed in each decade between 1900 and 2020. It helps visualize construction trends over time, highlighting periods of growth and stagnation.</p>
+
+<p><strong>Design choices – encodings:</strong></p>
+<ul>
+  <li>The <strong>x-axis</strong> is <code class="language-plaintext highlighter-rouge">Decade Built</code> (ordinal), and the <strong>y-axis</strong> is the number of buildings (quantitative).</li>
+  <li>The chart uses a  (<code class="language-plaintext highlighter-rouge">monotone</code>) to make the trend visually appealing and easier to interpret.</li>
+  <li>The area is filled with a <strong>vertical blue gradient</strong> (from light to dark) to emphasize the growth over time.</li>
+  <li>Interactive <strong>tooltips</strong> provide precise decade and building count on hover.</li>
+</ul>
+
+<p><strong>Design choices – colormaps:</strong><br />
+The vertical gradient (light blue to dark blue) was chosen to indicate volume and flow over time, while maintaining a clean, professional aesthetic. A <strong>white line border</strong> was added to define the area boundary more clearly.</p>
+
+<p><strong>Data transformations:</strong></p>
+<ul>
+  <li>A new <code class="language-plaintext highlighter-rouge">Decade Built</code> column was created from <code class="language-plaintext highlighter-rouge">Year Constructed</code>.</li>
+  <li>The dataset was grouped by <code class="language-plaintext highlighter-rouge">Decade Built</code>, and missing decades were filled with 0 to maintain consistent spacing on the x-axis.</li>
+  <li>The y-axis was scaled to fit slightly above the max value for visual clarity.</li>
+</ul>
+
+<p><strong>Overlap with Homework #5:</strong><br />
+This chart is <strong>entirely new</strong> and not present in Homework #5. While the dataset is the same, the chart type, transformations, and focus are completely different.</p>
+
+<hr />
+
+<h2 id="interactivity">Interactivity</h2>
+
+<p>This submission includes interactive features beyond zoom and pan:</p>
+
+<ul>
+  <li><strong>Visualization 1 (scatter plot)</strong> includes full zoom/pan via <code class="language-plaintext highlighter-rouge">.interactive()</code> as well as detailed hover tooltips.</li>
+  <li><strong>Visualization 2 (area chart)</strong> includes hover tooltips for each decade, showing the exact count of buildings.These features make the plots easier to explore and provide additional insights without cluttering the visual design.</li>
+</ul>
+
+<hr />
+
+</div>
+  </main>
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>A. P. Corgi</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="mailto:username@domain.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/jnaiman"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.twitter.com/your_username"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.youtube.com/your_channel_name"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#ff0000'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-youtube fa-1x"></i>
+    </a>
+
+</div>
+
+  Theme by <a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a> and <a href="https://github.com/4dcu-be/4dcu.be">4dcu.be</a>.
+
+  
+<!--<small id="attribution">
+    theme <a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a>
+  </small>
+-->
+
+</footer>
+
+
+
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+</body>
+
+<!--
+end of checks! JPN
+-->
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
