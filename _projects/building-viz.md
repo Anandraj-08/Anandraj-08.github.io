@@ -77,9 +77,9 @@ This submission includes interactive features beyond zoom and pan:
 ---
 
 <div class="left">
-{% include elements/button.html link="https://github.com/spatel54/spatel54.github.io/blob/725f63d7ebc40c615a8ff2f72891eef93d7db924/assets/json/bfro_reports_fall2022.json" text="The Data" %}
+{% include elements/button.html link="https://github.com/Anandraj-08/Anandraj-08.github.io/blob/master/assets/json/building_inventory.json" text="The Data" %}
 </div>
 
 <div class="right">
-{% include elements/button.html link="https://github.com/Anandraj-08/is445-building-viz/blob/master/building_visualizations.ipynb" text="The Analysis" %}
+{% include elements/button.html link="https://github.com/Anandraj-08/Anandraj-08.github.io/blob/master/python_notebooks/building_visualizations.ipynb" text="The Analysis" %}
 </div>
