@@ -1,6 +1,14 @@
 ---
-title: "Building Inventory Visualizations"
-date: 2025-04-02
+name: Building Inventory Dataset
+tools: [Python, HTML, vega-lite, altair]
+image: assets/pngs/scatter.png
+description: This notebook displays two different visualizations for the Building Inventory dataset.
+custom_js:
+ - vega.min
+ - vega-lite.min
+ - vega-embed.min
+ - justcharts
+permalink: /projects/hw5
 ---
 
 ## The Data  
@@ -10,9 +18,10 @@ date: 2025-04-02
 [Notebook](https://github.com/Anandraj-08/is445-building-viz/blob/main/building_visualizations.ipynb) 
 
 ##  Visualization 1: Building Age vs. Size Distribution (Scatter Plot)
+<iframe src="/assets/plots/Chart_1.html" width="100%" height="700" style="border:none;"></iframe>
 
 **What is being visualized:**  
-This interactive scatter plot shows the relationship between when a building was constructed and its total square footage. Each point represents a building in the dataset. This allows us to analyze whether newer buildings tend to be larger, and how different agencies compare in terms of building size and construction periods.
+This interactive scatter plot shows the relationship between when a building was constructed and its total square footage. Each point represents a building in the dataset. This allows us to analyze whether new buildings tend to be larger, and how different agencies compare in terms of building size and construction periods.
 
 **Design choices – encodings:**  
 - The **x-axis** encodes the `Year Constructed` (quantitative), and the **y-axis** encodes `Square Footage` (quantitative).
@@ -34,6 +43,7 @@ This plot is inspired by the original scatter plot from Homework #5 but has been
 ---
 
 ##  Visualization 2: Building Construction by Decade (Area Chart)
+<iframe src="/assets/plots/Chart_2.html" width="100%" height="700" style="border:none;"></iframe>
 
 **What is being visualized:**  
 This area chart shows how many buildings were constructed in each decade between 1900 and 2020. It helps visualize construction trends over time, highlighting periods of growth and stagnation.
@@ -45,7 +55,7 @@ This area chart shows how many buildings were constructed in each decade between
 - Interactive **tooltips** provide precise decade and building count on hover.
 
 **Design choices – colormaps:**  
-The vertical gradient (light blue to dark blue) was chosen to indicate volume and flow over time, while maintaining a clean, professional aesthetic. A **white line border** was added to define the area boundary more clearly.
+The vertical gradient (light blue to dark blue) was chosen to indicate volume and flow over time, while maintaining a clean and professional aesthetic. A **white line border** was added to define the area boundary more clearly.
 
 **Data transformations:**  
 - A new `Decade Built` column was created from `Year Constructed`.
@@ -62,6 +72,14 @@ This chart is **entirely new** and not present in Homework #5. While the dataset
 This submission includes interactive features beyond zoom and pan:
 
 - **Visualization 1 (scatter plot)** includes full zoom/pan via `.interactive()` as well as detailed hover tooltips.
-- **Visualization 2 (area chart)** includes hover tooltips for each decade, showing the exact count of buildings.These features make the plots easier to explore and provide additional insights without cluttering the visual design.
+- **Visualization 2 (area chart)** includes hover tooltips for each decade showing the exact count of buildings.These features make the plots easier to explore and provide additional insights without cluttering the visual design.
 
 ---
+
+<div class="left">
+{% include elements/button.html link="https://github.com/spatel54/spatel54.github.io/blob/725f63d7ebc40c615a8ff2f72891eef93d7db924/assets/json/bfro_reports_fall2022.json" text="The Data" %}
+</div>
+
+<div class="right">
+{% include elements/button.html link="https://github.com/Anandraj-08/is445-building-viz/blob/master/building_visualizations.ipynb" text="The Analysis" %}
+</div>
