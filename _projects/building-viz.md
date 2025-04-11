@@ -11,14 +11,8 @@ custom_js:
 permalink: /projects/hw5
 ---
 
-## The Data  
-[Dataset](https://raw.githubusercontent.com/UIUC-iSchool-DataViz/is445_data/main/building_inventory.csv)  
-
-## The Analysis  
-[Notebook](https://github.com/Anandraj-08/is445-building-viz/blob/main/building_visualizations.ipynb) 
-
 ##  Visualization 1: Building Age vs. Size Distribution (Scatter Plot)
-<iframe src="/assets/plots/Chart_1.html" width="100%" height="700" style="border:none;"></iframe>
+<iframe src="/assets/plots/Chart_1.html" width="100%" height="500" style="border:none;"></iframe>
 
 **What is being visualized:**  
 This interactive scatter plot shows the relationship between when a building was constructed and its total square footage. Each point represents a building in the dataset. This allows us to analyze whether new buildings tend to be larger, and how different agencies compare in terms of building size and construction periods.
