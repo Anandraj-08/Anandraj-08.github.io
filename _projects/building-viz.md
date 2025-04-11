@@ -1,7 +1,7 @@
 ---
 name: Building Inventory Dataset
 tools: [Python, HTML, vega-lite, altair]
-image: assets/pngs/scatter.png
+image: assets/pngs/image.png
 description: This notebook displays two different visualizations for the Building Inventory dataset.
 custom_js:
  - vega.min
