@@ -12,7 +12,7 @@ permalink: /projects/hw5
 ---
 
 ##  Visualization 1: Building Age vs. Size Distribution (Scatter Plot)
-<iframe src="/assets/plots/Chart_1.html" width="100%" height="500" style="border:none;"></iframe>
+<iframe src="/assets/plots/Chart_2.html" width="100%" height="500" style="border:none;"></iframe>
 
 **What is being visualized:**  
 This interactive scatter plot shows the relationship between when a building was constructed and its total square footage. Each point represents a building in the dataset. This allows us to analyze whether new buildings tend to be larger, and how different agencies compare in terms of building size and construction periods.
@@ -37,7 +37,7 @@ This plot is inspired by the original scatter plot from Homework #5 but has been
 ---
 
 ##  Visualization 2: Building Construction by Decade (Area Chart)
-<iframe src="/assets/plots/Chart_2.html" width="100%" height="700" style="border:none;"></iframe>
+<iframe src="/assets/plots/Chart_1.html" width="100%" height="700" style="border:none;"></iframe>
 
 **What is being visualized:**  
 This area chart shows how many buildings were constructed in each decade between 1900 and 2020. It helps visualize construction trends over time, highlighting periods of growth and stagnation.
